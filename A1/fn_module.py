@@ -1,8 +1,18 @@
+import re
+import os
+import string
 import nltk
 from nltk.corpus import stopwords
 nltk.download('stopwords')
-import string
 
+def read_file(directory = "CSE508_Winter2023_Dataset_Processed"):
+    data = {}
+    for filename in os.listdir(directory):    
+        file_path = os.path.join(directory, filename)
+        with open(file_path, 'r') as f:
+            file_contents = f.read()
+        data[filename] = file_contents
+    return data
 
 def remove_stop_words(s):
     s = s.split()
@@ -35,6 +45,8 @@ def preprocess(s):
     s = remove_stop_words(s)
     # remove punctuations
     s = remove_punctuation(s)
+    s = s.split()
+    # print(s)
     return s
 
 
