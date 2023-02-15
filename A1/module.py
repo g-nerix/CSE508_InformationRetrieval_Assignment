@@ -35,8 +35,8 @@ def preprocess(s):
     s = remove_stop_words(s)
     # remove punctuations
     s = remove_punctuation(s)
+    return s
 
 
-    print(s)
 
-preprocess("SDHCdevj to a and not hello we'll help y'all")
+# preprocess("SDHCdevj to a and not hello we'll help y'all")
